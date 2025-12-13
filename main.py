@@ -19,12 +19,13 @@ def run_checkpassword():
 bgimage = pygame.image.load("assets/maps/bgimageR.png")
 setimage = pygame.image.load("assets/setting.png")
 
-jay_ico = pygame.image.load("assets/ninjas/JAY2_icon.png")
-cole_ico = pygame.image.load("assets/ninjas/COLE1_icon.png")
-kai_ico = pygame.image.load("assets/ninjas/KAI1_icon.png")
-lloyd_ico = pygame.image.load("assets/ninjas/LLOYD1_icon.png")
-wu_ico = pygame.image.load("assets/ninjas/WU1_icon.png")
-zane_ico = pygame.image.load("assets/ninjas/ZANE1_icon.png")
+jay2_ico = pygame.image.load("assets/ninjas/JAY2/JAY2_icon.png")
+jay1_ico = pygame.image.load("assets/ninjas/JAY1/JAY1_icon.png")
+cole_ico = pygame.image.load("assets/ninjas/COLE1/COLE1_icon.png")
+kai_ico = pygame.image.load("assets/ninjas/KAI1/KAI1_icon.png")
+lloyd_ico = pygame.image.load("assets/ninjas/LLOYD1/LLOYD1_icon.png")
+wu_ico = pygame.image.load("assets/ninjas/WU1/WU1_icon.png")
+zane_ico = pygame.image.load("assets/ninjas/ZANE1/ZANE1_icon.png")
 
 clock = pygame.time.Clock()
 timer = 0
@@ -52,20 +53,19 @@ while run:
             player.reset_pos()
     
     if draw_char:
-        window.blit(jay_ico, (936, 64))
-
+        window.blit(jay1_ico, (936, 64))
         window.blit(kai_ico, (936, 2*64))
         window.blit(cole_ico, (936, 3*64))
         window.blit(lloyd_ico, (936, 4*64))
         window.blit(wu_ico, (936, 5*64))
         window.blit(zane_ico, (936, 6*64))
+        window.blit(jay2_ico, (936, 7*64))
     
     if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000 \
         and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64 \
         and pygame.mouse.get_pressed()[0] and timer >= 200:
             timer = 0
             draw_char = not draw_char
-            print('clique')
 
     player.draw(window)
 
