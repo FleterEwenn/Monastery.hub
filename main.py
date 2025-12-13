@@ -60,12 +60,21 @@ while run:
         window.blit(wu_ico, (936, 5*64))
         window.blit(zane_ico, (936, 6*64))
         window.blit(jay2_ico, (936, 7*64))
+
+        if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000:
+
+            for i in range(1, 8):
+                if pygame.mouse.get_pos()[1] >= 64*i and pygame.mouse.get_pos()[1] <= 64*(i+1) \
+                  and pygame.mouse.get_pressed()[0] and timer >= 200:
+                    timer = 0
+                    player.change_perso(i)
+
     
     if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000 \
-        and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64 \
-        and pygame.mouse.get_pressed()[0] and timer >= 200:
-            timer = 0
-            draw_char = not draw_char
+      and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64 \
+      and pygame.mouse.get_pressed()[0] and timer >= 200:
+        timer = 0
+        draw_char = not draw_char
 
     player.draw(window)
 

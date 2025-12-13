@@ -39,6 +39,7 @@ class Player:
         surface.blit(self.frame, (self.rect.x, self.rect.y))
         pygame.draw.rect(surface, (255, 0, 0), self.rect, 1)
     
-    def change_perso(self, name:str):
-        if name == "jay1":
-            self.frame = get_jay1()
+    def change_perso(self, id:int):
+        if id == 1:
+            self.all_frames = get_jay1()
+            print('changement de personnage')
