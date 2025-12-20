@@ -31,7 +31,7 @@ clock = pygame.time.Clock()
 timer = 0
 
 while run:
-    dt = clock.tick(30)
+    dt = clock.tick(60)
     timer += dt
 
     for event in pygame.event.get():

@@ -17,20 +17,21 @@ class Player:
         self.frame_timer += dt
 
         if self.frame_timer >= 100:
-            self.image_index = (self.image_index + 1)%6
+            self.frame_timer = 0
+            self.image_index = (self.image_index + 1) % 6
         
         keys = pygame.key.get_pressed()
         if keys[pygame.K_DOWN]:
-            self.rect.y += 5
+            self.rect.y += 3
             self.frame = self.all_frames['head'][self.image_index]
         elif keys[pygame.K_UP]:
-            self.rect.y -= 5
+            self.rect.y -= 3
             self.frame = self.all_frames['back'][self.image_index]
         elif keys[pygame.K_LEFT]:
-            self.rect.x -= 5
+            self.rect.x -= 3
             self.frame = self.all_frames['left'][self.image_index]
         elif keys[pygame.K_RIGHT]:
-            self.rect.x += 5
+            self.rect.x += 3
             self.frame = self.all_frames['right'][self.image_index]
         else :
             self.frame = self.all_frames['head'][0]
