@@ -1,5 +1,7 @@
 from tkinter import *
 
+var = {}
+
 def split_code():
     code = zone_text.get('1.0', END).strip()
     lines = code.split("\n")
@@ -10,7 +12,6 @@ def split_code():
     executer_code(clean_lines)
 
 def executer_code(code:list[str]):
-    var = {}
 
     for line in code:
         if line.startswith("spinjutzu"): # affichage dans la console
@@ -20,7 +21,6 @@ def executer_code(code:list[str]):
                 current_line = line.split("=")
                 name = current_line[0][10:]
                 val = current_line[1]
-                val.join
 
                 for name in var.keys():
                     if name in val:
