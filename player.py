@@ -1,5 +1,5 @@
 import pygame
-from assets import get_jay1
+from assets import get_jay1, get_cole1
 
 class Player:
     def __init__(self):
@@ -41,6 +41,8 @@ class Player:
         pygame.draw.rect(surface, (255, 0, 0), self.rect, 1)
     
     def change_perso(self, id:int):
+        print('changement de personnage')
         if id == 1:
             self.all_frames = get_jay1()
-            print('changement de personnage')
+        if id == 3:
+            self.all_frames = get_cole1()
