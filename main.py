@@ -18,6 +18,8 @@ def run_checkpassword():
 
 bgimage = pygame.image.load("assets/maps/bgimageR.png")
 setimage = pygame.image.load("assets/setting.png")
+x = 930
+y = 0
 
 jay2_ico = pygame.image.load("assets/ninjas/JAY2/JAY2_icon.png")
 jay1_ico = pygame.image.load("assets/ninjas/JAY1/JAY1_icon.png")
@@ -42,7 +44,7 @@ while run:
     player.update(dt)
     
     window.blit(bgimage, (0, 0))
-    window.blit(setimage, (936, 0))
+    window.blit(setimage, (x, y))
 
     for i in range(len(list_module)):
         #pygame.draw.rect(window, (0, 255, 0), list_module[i], 1)
@@ -54,14 +56,14 @@ while run:
             player.reset_pos()
     
     if draw_char:
-        window.blit(jay1_ico, (936, 64))
-        window.blit(kai_ico, (936, 2*64))
-        window.blit(cole_ico, (936, 3*64))
-        window.blit(lloyd_ico, (936, 4*64))
-        window.blit(wu_ico, (936, 5*64))
-        window.blit(zane_ico, (936, 6*64))
-        window.blit(jay2_ico, (936, 7*64))
-        window.blit(nya_ico, (936, 8*64))
+        window.blit(jay1_ico, (945, 20+64))
+        window.blit(kai_ico, (945, 20+2*64))
+        window.blit(cole_ico, (945, 20+3*64))
+        window.blit(lloyd_ico, (945, 20+4*64))
+        window.blit(wu_ico, (945, 20+5*64))
+        window.blit(zane_ico, (945, 20+6*64))
+        window.blit(jay2_ico, (945, 20+7*64))
+        window.blit(nya_ico, (945, 20+8*64))
 
         if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000:
 
@@ -73,10 +75,19 @@ while run:
 
     
     if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000 \
-      and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64 \
-      and pygame.mouse.get_pressed()[0] and timer >= 200:
-        timer = 0
-        draw_char = not draw_char
+      and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64:
+        setimage = pygame.transform.scale(setimage, (70, 70))
+        x = 926
+        y = -4
+
+        if pygame.mouse.get_pressed()[0] and timer >= 200:
+            timer = 0
+            draw_char = not draw_char
+    
+    else:
+        setimage = pygame.transform.scale(setimage, (64, 64))
+        x = 930
+        y = 0
 
     player.draw(window)
 
