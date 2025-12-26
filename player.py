@@ -4,6 +4,7 @@ from assets import get_jay1, get_cole1, get_kai1, get_jay2, get_wu1
 class Player:
     def __init__(self):
         self.image_index = 0
+        self.direction = "head"
         self.all_frames = get_jay1()
         self.frame = self.all_frames['head'][self.image_index]
         self.rect = pygame.Rect(455, 280, 64, 64)
@@ -24,15 +25,19 @@ class Player:
         if keys[pygame.K_DOWN]:
             self.rect.y += 3
             self.frame = self.all_frames['head'][self.image_index]
+            self.direction = "head"
         elif keys[pygame.K_UP]:
             self.rect.y -= 3
             self.frame = self.all_frames['back'][self.image_index]
+            self.direction = "back"
         elif keys[pygame.K_LEFT]:
             self.rect.x -= 3
             self.frame = self.all_frames['left'][self.image_index]
+            self.direction = "head"
         elif keys[pygame.K_RIGHT]:
             self.rect.x += 3
             self.frame = self.all_frames['right'][self.image_index]
+            self.direction = "head"
         else :
             self.frame = self.all_frames['head'][0]
     
