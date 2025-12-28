@@ -1,5 +1,5 @@
 import pygame
-from assets import get_jay1, get_cole1, get_kai1, get_jay2, get_wu1
+from assets import get_jay1, get_cole1, get_kai1, get_jay2, get_wu1, get_lloyd1
 
 class Player:
     def __init__(self):
@@ -39,7 +39,10 @@ class Player:
             self.frame = self.all_frames['right'][self.image_index]
             self.direction = "head"
         else :
-            self.frame = self.all_frames['head'][0]
+            if self.direction == "head" :
+                self.frame = self.all_frames['idle'][0]
+            elif self.direction == "back":
+                self.frame = self.all_frames['idle'][1]
     
     def draw(self, surface:pygame.Surface):
         surface.blit(self.frame, (self.rect.x, self.rect.y))
@@ -52,6 +55,8 @@ class Player:
             self.all_frames = get_kai1()
         elif id == 3:
             self.all_frames = get_cole1()
+        elif id == 4:
+            self.all_frames = get_lloyd1()
         elif id == 5:
             self.all_frames = get_wu1()
         elif id == 7:
