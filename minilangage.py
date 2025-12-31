@@ -35,7 +35,25 @@ def executer_code(code:list[str]):
             current_line = line
             current_text = current_line[10:]
 
-            current_text = replace_by_values(current_text)
+            list_text = current_text.split("'")
+
+            list_string = []
+
+            on_string = False
+            string = ""
+            for char in current_text:
+                if on_string:
+                    string += char
+                if char == "'":
+                    on_string = not on_string
+                    list_string.append(string)
+                    string = ""
+            
+            for i in range(len(list_text)):
+                if not list_text[i] in list_string:
+                    list_text[i] = replace_by_values(list_text[i])                
+
+            #current_text = replace_by_values(current_text)
 
             ecrire_console(eval(current_text))
 
