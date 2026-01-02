@@ -45,15 +45,18 @@ def executer_code(code:list[str]):
                 if on_string:
                     string += char
                 if char == "'":
-                    on_string = not on_string
-                    list_string.append(string)
+                    if on_string:
+                        list_string.append(string[:-1])
                     string = ""
+                    on_string = not on_string
             
             for i in range(len(list_text)):
-                if not list_text[i] in list_string:
-                    list_text[i] = replace_by_values(list_text[i])                
-
-            #current_text = replace_by_values(current_text)
+                if list_text[i] in list_string:
+                    list_text[i] = "'" + list_text[i] + "'"
+                else:
+                    list_text[i] = replace_by_values(list_text[i])
+            
+            current_text = "".join(list_text)
 
             ecrire_console(eval(current_text))
 
@@ -62,6 +65,14 @@ def executer_code(code:list[str]):
                 current_line = line.split("=")
                 current_name = current_line[0][9:].strip()
                 val = current_line[1]
+
+                list_text = val.split("'")
+
+                list_string = []
+
+                for char in val:
+                    if char == "'":
+                        pass
 
                 val = replace_by_values(val)
 
