@@ -2,6 +2,8 @@ import subprocess
 import sys
 import pygame
 from player import Player
+import webbrowser
+import os
 
 pygame.init()
 
@@ -15,6 +17,10 @@ draw_char = False
 
 def run_checkpassword():
     subprocess.Popen([sys.executable, "CheckPassword.py"])
+
+def run_quiz():
+    chemin = os.getcwd()
+    webbrowser.open(chemin + "/quiz-lego/index.html")
 
 bgimage = pygame.image.load("assets/maps/bgimageR.png")
 setimage = pygame.image.load("assets/setting.png")
@@ -53,6 +59,8 @@ while run:
         and player.rect.bottom >= list_module[i].top and player.rect.top <= list_module[i].bottom :
             if i == 0:
                 run_checkpassword()
+            if i == 1:
+                run_quiz()
             player.reset_pos()
     
     if draw_char:
