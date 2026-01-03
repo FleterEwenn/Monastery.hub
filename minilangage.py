@@ -32,33 +32,47 @@ def executer_code(code:list[str]):
 
     for line in code:
         if line.startswith("spinjutzu "): # affichage dans la console
-            current_line = line
-            current_text = current_line[10:]
+            try:
+                current_line = line
+                current_text = current_line[10:]
 
-            list_text = current_text.split("'")
+                list_text = current_text.split("'")
+                if len(list_text)%2 == 0:
+                    raise SyntaxError(f"syntaxe invalide, ligne {code.index(line) + 1} : la chaine de caractère est mal delimitée")
 
-            list_string = []
+                list_string = []
 
-            on_string = False
-            string = ""
-            for char in current_text:
-                if on_string:
-                    string += char
-                if char == "'":
+                on_string = False
+                string = ""
+                for char in current_text:
                     if on_string:
-                        list_string.append(string[:-1])
-                    string = ""
-                    on_string = not on_string
-            
-            for i in range(len(list_text)):
-                if list_text[i] in list_string:
-                    list_text[i] = "'" + list_text[i] + "'"
-                else:
-                    list_text[i] = replace_by_values(list_text[i])
-            
-            current_text = "".join(list_text)
+                        string += char
+                    if char == "'":
+                        if on_string:
+                            list_string.append(string[:-1])
+                        string = ""
+                        on_string = not on_string
+                
+                for i in range(len(list_text)):
+                    if list_text[i] in list_string:
+                        list_text[i] = "'" + list_text[i] + "'"
+                    else:
+                        list_text[i] = replace_by_values(list_text[i])
+                
+                current_text = "".join(list_text)
 
-            ecrire_console(eval(current_text))
+                ecrire_console(eval(current_text))
+            
+            except NameError as e:
+                name = ""
+                on_name = True
+                for char in str(e):
+                    if on_name:
+                        name += char
+                    if char == "'":
+                        on_name = not on_name
+            except Exception as e:
+                ecrire_console(e)
 
         elif line.startswith("nindroide "): # creation d'une variable
             try:
@@ -67,20 +81,44 @@ def executer_code(code:list[str]):
                 val = current_line[1]
 
                 list_text = val.split("'")
+                if len(list_text)%2 == 0:
+                    raise SyntaxError(f"syntaxe invalide, ligne {code.index(line) + 1} : la chaine de caractère est mal delimitée")
 
                 list_string = []
 
+                on_string = False
+                string = ""
                 for char in val:
+                    if on_string:
+                        string += char
                     if char == "'":
-                        pass
-
-                val = replace_by_values(val)
+                        if on_string:
+                            list_string.append(string[:-1])
+                        on_string = not on_string
+                        string = ""
+                
+                for i in range(len(list_text)):
+                    if list_text[i] in list_string:
+                        list_text[i] = "'" + list_text[i] + "'"
+                    else:
+                        list_text[i] = replace_by_values(list_text[i])
+                
+                val = "".join(list_text)
 
                 var[current_name] = eval(val)
+
+            except NameError as e:
+                name = ""
+                on_name = True
+                for char in str(e):
+                    if on_name:
+                        name += char
+                    if char == "'":
+                        on_name = not on_name
+
+                ecrire_console(f"la variable '{name[-1]}' n'est pas definie")
             except Exception as e:
-                print(e)
-            except ValueError as e:
-                print(e)
+                ecrire_console(e)
     
         print(var)
 
