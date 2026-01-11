@@ -28,8 +28,7 @@ def fusionner(list1:list, list2:list)->list:
 
 
 def replace_by_values(string:str)->str:
-    list_name = list(var.keys())
-    list_name = trifusion(list_name)
+    list_name = trifusion(list(var.keys()))
     for name in list_name:
         if name in string:
             string = string.split(name)
@@ -54,7 +53,7 @@ def split_code():
         if on_if:
             if_code.append(line.strip())
         
-        if line != "" and not on_if:
+        if not on_if:
             clean_lines.append(line.strip())
 
         if line != "" and line.strip()[-1] == "{":
@@ -64,6 +63,7 @@ def split_code():
             list_if_codes.append(if_code)
             if_code = []
 
+    ecrire_console("")
     executer_code(clean_lines)
 
 def ecrire_console(text_to_print):
@@ -118,7 +118,7 @@ def executer_code(code:list[str]):
             except Exception as e:
                 ecrire_console(e)
 
-        elif line.startswith("nindroide "): # creation d'une variable
+        elif line.startswith("nindroide "): # creation/modification de variable
             try:
                 current_line = line.split("=")
                 current_name = current_line[0][9:].strip()
@@ -165,41 +165,55 @@ def executer_code(code:list[str]):
                 ecrire_console(e)
 
         elif line.startswith("wu "): # if
-            list_line = line.split("{")
-            bool_ = list_line[0][2:-1]
+            try:
+                list_line = line.split("{")
+                bool_ = list_line[0][2:-1]
 
-            list_text = bool_.split("'")
-            if len(list_text)%2 == 0:
-                raise SyntaxError(f"syntaxe invalide, ligne {code.index(line) + 1} : la chaine de caractère est mal delimitée")
+                list_text = bool_.split("'")
+                if len(list_text)%2 == 0:
+                    raise SyntaxError(f"syntaxe invalide, ligne {code.index(line) + 1} : la chaine de caractère est mal delimitée")
 
-            list_string = []
+                list_string = []
 
-            on_string = False
-            string = ""
-            for char in bool_:
-                if on_string:
-                    string += char
-                if char == "'":
+                on_string = False
+                string = ""
+                for char in bool_:
                     if on_string:
-                        list_string.append(string[:-1])
-                    string = ""
-                    on_string = not on_string
-                
-            for i in range(len(list_text)):
-                if list_text[i] in list_string:
-                    list_text[i] = "'" + list_text[i] + "'"
-                else:
-                    list_text[i] = replace_by_values(list_text[i])
-                
-            bool_ = "".join(list_text)
-            bool_ = eval(bool_)
+                        string += char
+                    if char == "'":
+                        if on_string:
+                            list_string.append(string[:-1])
+                        string = ""
+                        on_string = not on_string
+                    
+                for i in range(len(list_text)):
+                    if list_text[i] in list_string:
+                        list_text[i] = "'" + list_text[i] + "'"
+                    else:
+                        list_text[i] = replace_by_values(list_text[i])
+                    
+                bool_ = "".join(list_text)
+                bool_ = eval(bool_)
 
-            if bool_:
-                executer_code(list_if_codes[0])
-                list_if_codes.pop(0)
+                if bool_:
+                    executer_code(list_if_codes[0])
+                    list_if_codes.pop(0)
+            except NameError as e:
+                name = ""
+                on_name = False
+                for char in str(e):
+                    if on_name:
+                        name += char
+                    if char == "'":
+                        on_name = not on_name
 
-        elif line != "}":
+                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {code.index(line) + 1}")
+            except Exception as e:
+                ecrire_console(e)
+
+        elif line != "}" and line != "":
             ecrire_console(f"la commande n'existe pas, ligne {code.index(line) + 1}")
+        print(var)
 
 window = Tk()
 
