@@ -18,6 +18,9 @@ draw_char = False
 def run_checkpassword():
     subprocess.Popen([sys.executable, "CheckPassword.py"])
 
+def run_minilangage():
+    subprocess.Popen([sys.executable, "minilangage.py"])
+
 def run_quiz():
     chemin = os.getcwd()
     webbrowser.open(chemin + "/quiz-lego/index.html")
@@ -60,6 +63,8 @@ while run:
             if i == 0:
                 run_checkpassword()
             if i == 1:
+                run_minilangage()
+            if i == 2:
                 run_quiz()
             player.reset_pos()
     
