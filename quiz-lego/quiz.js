@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const theme = params.get("theme");
+const imageEl = document.getElementById("question-image");
 
 let index = 0;
 let score = 0;
@@ -40,7 +41,17 @@ const nextBtn = document.getElementById("next");
 
 function loadQuestion() {
     const q = questions[index];
+
     questionEl.textContent = q.question;
+
+    // 🔹 AFFICHER OU CACHER L’IMAGE
+    if (q.image) {
+        imageEl.src = q.image;
+        imageEl.style.display = "block";
+    } else {
+        imageEl.style.display = "none";
+        imageEl.src = "";
+    }
 
     buttons.forEach((btn, i) => {
         btn.textContent = q.answers[i];

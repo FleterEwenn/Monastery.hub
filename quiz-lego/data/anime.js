@@ -1,6 +1,7 @@
 const animeQuestions = [
     {
         question: "Quel est le nom du héros de Naruto ?",
+		image: "images/anime2/naruto.png",
         answers: ["Sasuke", "Naruto", "Kakashi", "Itachi"],
         correct: 1
     },
