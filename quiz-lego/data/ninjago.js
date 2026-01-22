@@ -66,7 +66,7 @@ const ninjagoQuestions = [
     },
 	{
         question: "Quel ninja a était obligé de porter une tenue rose ?",
-		image: "images/PINK.png",
+		image: "images/ninjago/PINK.png",
         answers: ["Kai", "Cole", "Lloyd", "Zane"],
         correct: 3
     },
