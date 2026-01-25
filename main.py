@@ -23,21 +23,21 @@ def run_minilangage():
 
 def run_quiz():
     chemin = os.getcwd()
-    webbrowser.open(chemin + "/quiz-lego/index.html")
+    webbrowser.open(os.sep.join([chemin, "quiz-lego", "index.html"]))
 
-bgimage = pygame.image.load("assets/maps/bgimageR.png")
-setimage = pygame.image.load("assets/setting.png")
+bgimage = pygame.image.load(os.sep.join(["assets", "maps", "bgimageR.png"]))
+setimage = pygame.image.load(os.sep.join(["assets", "setting.png"]))
 x = 930
 y = 0
 
-jay2_ico = pygame.image.load("assets/ninjas/JAY2/JAY2_icon.png")
-jay1_ico = pygame.image.load("assets/ninjas/JAY1/JAY1_icon.png")
-cole_ico = pygame.image.load("assets/ninjas/COLE1/COLE1_icon.png")
-kai_ico = pygame.image.load("assets/ninjas/KAI1/KAI1_icon.png")
-lloyd_ico = pygame.image.load("assets/ninjas/LLOYD1/LLOYD1_icon.png")
-wu_ico = pygame.image.load("assets/ninjas/WU1/WU1_icon.png")
-zane_ico = pygame.image.load("assets/ninjas/ZANE1/ZANE1_icon.png")
-nya_ico = pygame.image.load("assets/ninjas/NYA1/NYA1_icon.png")
+jay2_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "JAY2", "JAY2_icon.png"]))
+jay1_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "JAY1", "JAY1_icon.png"]))
+cole_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "COLE1", "COLE1_icon.png"]))
+kai_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "KAI1", "KAI1_icon.png"]))
+lloyd_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "LLOYD1", "LLOYD1_icon.png"]))
+wu_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "WU1", "WU1_icon.png"]))
+zane_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "ZANE1", "ZANE1_icon.png"]))
+nya_ico = pygame.image.load(os.sep.join(["assets", "ninjas", "NYA1", "NYA1_icon.png"]))
 
 clock = pygame.time.Clock()
 timer = 0
@@ -58,7 +58,7 @@ while run:
     for i in range(len(list_module)):
         #pygame.draw.rect(window, (0, 255, 0), list_module[i], 1)
 
-        if player.rect.left <= list_module[i].right and  player.rect.right >= list_module[i].left \
+        if player.rect.left <= list_module[i].right and player.rect.right >= list_module[i].left \
         and player.rect.bottom >= list_module[i].top and player.rect.top <= list_module[i].bottom :
             if i == 0:
                 run_checkpassword()

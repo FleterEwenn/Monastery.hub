@@ -46,7 +46,7 @@ class Player:
     
     def draw(self, surface:pygame.Surface):
         surface.blit(self.frame, (self.rect.x, self.rect.y))
-        pygame.draw.rect(surface, (255, 0, 0), self.rect, 1)
+        #pygame.draw.rect(surface, (255, 0, 0), self.rect, 1)
     
     def change_perso(self, id:int):
         if id == 1:
