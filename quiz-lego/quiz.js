@@ -1,12 +1,14 @@
 const params = new URLSearchParams(window.location.search);
 const theme = params.get("theme");
 const imageEl = document.getElementById("question-image");
+const homeBtn = document.getElementById("home");
+
 
 let index = 0;
 let score = 0;
 let questions = [];
 
-//  Association thème - questions
+//  Association thème/questions
 if (theme === "anime") {
     questions = animeQuestions;
 }
@@ -27,7 +29,7 @@ if (theme === "cinema") {
     questions = cinemaQuestions;
 }
 
-// Sécurité si problème
+// Sécu
 if (questions.length === 0) {
     document.body.innerHTML = "<h2>Aucune question chargée</h2>";
     throw new Error("Questions non chargées");
@@ -44,7 +46,7 @@ function loadQuestion() {
 
     questionEl.textContent = q.question;
 
-    // 🔹 AFFICHER OU CACHER L’IMAGE
+    // affiche/cacher img
     if (q.image) {
         imageEl.src = q.image;
         imageEl.style.display = "block";
@@ -79,7 +81,13 @@ nextBtn.onclick = () => {
         questionEl.textContent = `Quiz terminé ! Score : ${score}/${questions.length}`;
         document.querySelector(".answers").style.display = "none";
         nextBtn.style.display = "none";
+		homeBtn.style.display = "block";
     }
 };
+
+homeBtn.onclick = () => {
+    window.location.href = "index.html";
+};
+
 
 loadQuestion();

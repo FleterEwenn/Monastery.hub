@@ -150,3 +150,20 @@ header {
     margin-bottom: 20px;
     text-align: center;
 }
+
+#home {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background-color: #E3000B;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #B00009;
+}
+
+#home:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #B00009;
+}
