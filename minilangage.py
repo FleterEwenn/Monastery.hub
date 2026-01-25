@@ -1,3 +1,6 @@
+#Projet : monastery.hub
+#Auteurs : Ewenn Fleter, Raphael Kermes
+
 from tkinter import *
 
 var = {}
