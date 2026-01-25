@@ -2,7 +2,7 @@
 
 ## Pour commencer
 
-Avant de lancer le projet, il faut d'installer les bibliothèques nécessaires a l'éxécution du projet :
+Avant de lancer le projet, il faut d'abord installer les bibliothèques nécessaires a l'éxécution du projet :
 ```
 pip install -r requirements.txt
 ```
