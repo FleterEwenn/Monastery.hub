@@ -44,7 +44,10 @@ def replace_by_values(string:str)->str:
     return string
 
 def split_code():
-    global nbr_line
+    global nbr_line, var
+
+    var = {}
+
     nbr_line = 0
     code = zone_text.get('1.0', END).strip()
     lines = code.split("\n")
@@ -243,22 +246,22 @@ window = Tk()
 window.title("mini-langage")
 window.geometry("800x600")
 window.config(background='#314158')
-frameT = Frame(window)
-frameB = Frame(window)
 
-zone_text = Text(frameR, width=100, height=50)
-execute_btn = Button(frameR, command=split_code, text="executer")
+framesetting = Frame(window, background='#314158')
 
-console = Text(frameG, width=100, height=13)
+zone_text = Text(window, width=75, height=37)
+execute_btn = Button(framesetting, command=split_code, text="executer")
+clean_btn = Button(framesetting, text="nettoyer la console")
 
-frameR.grid(column=0, row=0)
-frameG.grid(column=1, row=0)
+console = Text(window, width=65, height=37)
 
-execute_btn.grid(column=0, row=0)
-zone_text.grid(column=0, row=1)
+framesetting.pack(side=LEFT, fill=Y)
+execute_btn.pack()
+clean_btn.pack()
 
+zone_text.pack(side=LEFT, expand=True)
 
-console.pack()
+console.pack(side=LEFT, expand=True)
 console.config(state=DISABLED)
 
 window.mainloop()
