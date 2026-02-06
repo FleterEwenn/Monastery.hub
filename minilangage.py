@@ -78,9 +78,9 @@ def split_code():
     else:
         executer_code(clean_lines)
 
-def ecrire_console(text_to_print):
+def ecrire_console(text_to_print, pre=''):
     console.config(state='normal')
-    console.insert(END, "\n" + str(text_to_print))
+    console.insert(END, "\n" + pre + str(text_to_print))
     console.config(state='disabled')
 
 def executer_code(code:list[str]):
@@ -122,7 +122,7 @@ def executer_code(code:list[str]):
                 
                 current_text = "".join(list_text)
 
-                ecrire_console(eval(current_text))
+                ecrire_console(eval(current_text), pre='>> ')
             
             except NameError as e:
                 name = ""
@@ -242,14 +242,21 @@ window = Tk()
 
 window.title("mini-langage")
 window.geometry("800x600")
+window.config(background='#314158')
+frameT = Frame(window)
+frameB = Frame(window)
 
-zone_text = Text(window, width=80, height=20)
-execute_btn = Button(window, command=split_code, text="executer")
+zone_text = Text(frameR, width=100, height=50)
+execute_btn = Button(frameR, command=split_code, text="executer")
 
-console = Text(window, width=80, height=13)
+console = Text(frameG, width=100, height=13)
 
-execute_btn.pack()
-zone_text.pack()
+frameR.grid(column=0, row=0)
+frameG.grid(column=1, row=0)
+
+execute_btn.grid(column=0, row=0)
+zone_text.grid(column=0, row=1)
+
 
 console.pack()
 console.config(state=DISABLED)
