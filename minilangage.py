@@ -29,7 +29,6 @@ def fusionner(list1:list, list2:list)->list:
     else:
         return [list2[0]] + fusionner(list1, list2[1:])
 
-
 def replace_by_values(string:str)->str:
     list_name = trifusion(list(var.keys()))
     for name in list_name:
@@ -81,9 +80,18 @@ def split_code():
     else:
         executer_code(clean_lines)
 
-def ecrire_console(text_to_print, pre=''):
+def ecrire_console(text_to_print, pre:str='', error:bool=False):
+    print(error, text_to_print)
+    tag = 'normal'
+    if error:
+        tag = 'error'
     console.config(state='normal')
-    console.insert(END, "\n" + pre + str(text_to_print))
+    console.insert(END, "\n" + pre + str(text_to_print), tag)
+    console.config(state='disabled')
+
+def clear_console():
+    console.config(state='normal')
+    console.delete('1.0', END)
     console.config(state='disabled')
 
 def executer_code(code:list[str]):
@@ -92,8 +100,9 @@ def executer_code(code:list[str]):
     for line in code:
         nbr_line += 1
 
-        if line[-1] == "}":
-            line = line[:-1]
+        if not line == "":
+            if line[-1] == "}":
+                line = line[:-1]
 
         if line.startswith("spinjutzu "): # affichage dans la console
             try:
@@ -135,9 +144,9 @@ def executer_code(code:list[str]):
                         name += char
                     if char == "'":
                         on_name = not on_name
-                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {nbr_line}")
+                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {nbr_line}", error=True)
             except Exception as e:
-                ecrire_console(e)
+                ecrire_console(e, error=True)
 
         elif line.startswith("nindroide "): # creation/modification de variable
             try:
@@ -181,14 +190,14 @@ def executer_code(code:list[str]):
                     if char == "'":
                         on_name = not on_name
 
-                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {nbr_line}")
+                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {nbr_line}", error=True)
             except SyntaxError as e:
                 if str(e).startswith("'{' was never closed"):
-                    ecrire_console(f"erreur de syntaxe, ligne {nbr_line} :" + " '{' a été utilisé à tort")
+                    ecrire_console(f"erreur de syntaxe, ligne {nbr_line} :" + " '{' a été utilisé à tort", error=True)
                 else:
-                    ecrire_console(e)
+                    ecrire_console(e, error=True)
             except Exception as e:
-                ecrire_console(e)
+                ecrire_console(e, error=True)
 
         elif line.startswith("wu "): # if
             try:
@@ -233,35 +242,38 @@ def executer_code(code:list[str]):
                     if char == "'":
                         on_name = not on_name
 
-                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {code.index(line) + 1}")
+                ecrire_console(f"la variable '{name[:-1]}' n'est pas definie, ligne {code.index(line) + 1}", error=True)
             except Exception as e:
                 ecrire_console(e)
 
         elif line != "":
-            ecrire_console(f"la commande n'existe pas, ligne {code.index(line) + 1}")
+            ecrire_console(f"la commande n'existe pas, ligne {code.index(line) + 1}", error=True)
         print(var)
 
 window = Tk()
 
 window.title("mini-langage")
 window.geometry("800x600")
-window.config(background='#314158')
+window.config(background='#27272A')
 
-framesetting = Frame(window, background='#314158')
+framesetting = Frame(window, background='#27272A')
 
-zone_text = Text(window, width=75, height=37)
-execute_btn = Button(framesetting, command=split_code, text="executer")
-clean_btn = Button(framesetting, text="nettoyer la console")
+zone_text = Text(window, width=75, height=39, background='#404040', fg='#FAFAFA', relief=SOLID)
 
-console = Text(window, width=65, height=37)
+execute_btn = Button(framesetting, command=split_code, text="executer", relief=FLAT)
+clean_btn = Button(framesetting, text="nettoyer la console", command=clear_console, relief=FLAT)
 
-framesetting.pack(side=LEFT, fill=Y)
-execute_btn.pack()
-clean_btn.pack()
+console = Text(window, width=65, height=39, background='#404040', fg='#FAFAFA', relief=SOLID)
+
+framesetting.pack(side=LEFT, fill=Y, pady=10, expand=YES)
+execute_btn.pack(pady=10, padx=5)
+clean_btn.pack(pady=10, padx=5)
 
 zone_text.pack(side=LEFT, expand=True)
 
 console.pack(side=LEFT, expand=True)
+console.tag_config('error', foreground='#FF0000')
+console.tag_config('normal', foreground='#FAFAFA')
 console.config(state=DISABLED)
 
 window.mainloop()
