@@ -10,9 +10,15 @@ h1, h2, ul{
 h1 {
     font-size: 2rem;
 }
+h2 {
+    font-size: 1.5rem;
+}
 
 p{
     font-family: monospace;
+    font-size: 1.1rem;
+    color: black;
+    margin: auto;
 }
 
 .ul-center {
@@ -20,13 +26,28 @@ p{
     margin: auto;
 }
 
+li {
+    padding: 0.3rem;
+}
+
 h1, h2 {
     text-align: center;
 }
 .code {
     border : solid #cecece 1px;
-    padding-left: 5px;
+    padding: 0.3rem;
     width: 50%;
     margin: auto;
     border-radius: 0.3rem;
+    background-color: #444444;
+}
+
+.code-span {
+    border : solid #cecece 1px;
+    border-radius: 0.3rem;
+    background-color: #444444;
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: black;
+    padding: 0.1rem;
 }
