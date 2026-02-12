@@ -9,8 +9,9 @@ window = Tk()
 
 window.title("Check Password")
 window.geometry("800x600")
+window.config(background="#1C55A3")
 
-def evaluate_password(password:str):
+def evaluate_password(password:str, frame:Frame):
     # peut être conseiller à voir ce site ?
     # https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/mots-de-passe#:~:text=Utilisez%20un%20mot%20de%20passe%20suffisamment%20long%20et%20complexe&text=Pour%20emp%C3%AAcher%20ce%20type%20d,chiffres%20et%20des%20caract%C3%A8res%20sp%C3%A9ciaux.
 
@@ -52,6 +53,8 @@ def evaluate_password(password:str):
         point -= 5
     elif len(password) < 12:
         point -= 1
+    else:
+        point += 3
     
     if point <= 0:
         response = "Votre mot de passe est completement nul"
@@ -69,22 +72,22 @@ def evaluate_password(password:str):
         response = "Bravo, votre mot de passe est fort"
         label_color = 'green'
 
-    label_check = Label(window, text=response, fg=label_color)
+    label_check = Label(frame, text=response, fg=label_color, background="#1C55A3", font=("Comic sans MS", 13))
     
-    label_check.pack()
+    label_check.pack(pady=15)
     label_check.after(3000, label_check.destroy)
 
 def check_password(frame:Frame):
     frame.destroy()
 
-    checkpwd_frame = Frame(window)
-    checkpwd_frame.pack(pady=50)
+    checkpwd_frame = Frame(window, background="#1C55A3")
+    checkpwd_frame.pack(expand=YES)
 
-    password_entry = Entry(checkpwd_frame)
-    valid_btn = Button(checkpwd_frame, text="Valider", command=lambda:evaluate_password(str(password_entry.get())))
+    password_entry = Entry(checkpwd_frame, font=("Comic sans MS", 15))
+    valid_btn = Button(checkpwd_frame, text="Valider", command=lambda:evaluate_password(str(password_entry.get()), checkpwd_frame), font=("Comic sans MS", 15), background="#2779F5")
 
     password_entry.pack()
-    valid_btn.pack()
+    valid_btn.pack(pady=20)
 
 def generate_pwd(frame:Frame, length:int):
     charspe = punctuation
@@ -111,34 +114,39 @@ def generate_pwd(frame:Frame, length:int):
     shuffle(password)
     password = ''.join(password)
 
-    label_pwd = Label(frame, text=f"Votre mot de passe est : {password}")
+    entry_pwd = Entry(frame, font=("Comic sans MS", 15))
+    entry_pwd.insert(0, password)
+
+    label_pwd = Label(frame, text=f"Votre mot de passe est : ", font=("Comic sans MS", 15), background="#1C55A3")
     label_pwd.pack()
-    label_pwd.after(5000, label_pwd.destroy)
+    entry_pwd.pack()
+    label_pwd.after(10000, label_pwd.destroy)
+    entry_pwd.after(10000, entry_pwd.destroy)
 
 def generate_pwd_menu(frame:Frame):
     frame.destroy()
 
-    genpwd_frame = Frame(window)
-    genpwd_frame.pack(pady=50)
+    genpwd_frame = Frame(window, background="#1C55A3")
+    genpwd_frame.pack(expand=YES)
 
-    label_lenght = Label(genpwd_frame, text="Choisissez la longueur du mot de passe souhaité")
-    label_lenght.pack()
+    label_lenght = Label(genpwd_frame, text="Choisissez la longueur du mot de passe souhaitée", font=("Comic sans MS", 15), background="#1C55A3")
+    label_lenght.pack(pady=20)
 
-    lenght_scale = Scale(genpwd_frame, from_=10, to=50, orient=HORIZONTAL)
-    lenght_scale.pack()
+    lenght_scale = Scale(genpwd_frame, from_=10, to=50, orient=HORIZONTAL, background="#1C55A3", width=20, font=("Comic sans MS", 15))
+    lenght_scale.pack(pady=20)
 
-    btn_genpwd = Button(genpwd_frame, text="générer mot de passe", command=lambda:generate_pwd(genpwd_frame, lenght_scale.get()))
-    btn_genpwd.pack()
+    btn_genpwd = Button(genpwd_frame, text="générer mot de passe", command=lambda:generate_pwd(genpwd_frame, lenght_scale.get()), font=("Comic sans MS", 15), background="#2779F5")
+    btn_genpwd.pack(pady=20)
 
 def main():
-    main_frame = Frame(window)
-    main_frame.pack(pady=50)
+    main_frame = Frame(window, background="#1C55A3")
+    main_frame.pack(expand=YES)
 
-    btn_check = Button(main_frame, text="Verifier mot de passe", command=lambda:check_password(main_frame))
-    btn_generate = Button(main_frame, text="Générer mot de passe sécurisé", command=lambda:generate_pwd_menu(main_frame))
+    btn_check = Button(main_frame, text="Verifier mot de passe", command=lambda:check_password(main_frame), font=("Comic sans MS", 15), background="#2779F5")
+    btn_generate = Button(main_frame, text="Générer mot de passe sécurisé", command=lambda:generate_pwd_menu(main_frame), font=("Comic sans MS", 15), background="#2779F5")
 
-    btn_check.pack()
-    btn_generate.pack()
+    btn_check.pack(pady=20)
+    btn_generate.pack(pady=20)
 
 main()
 
