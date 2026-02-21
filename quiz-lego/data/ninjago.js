@@ -70,5 +70,22 @@ const ninjagoQuestions = [
         answers: ["Kai", "Cole", "Lloyd", "Zane"],
         correct: 3
     },
+	{
+        question: "De quel royaume provient Nadakhan le djinn ?",
+        answers: ["Djinjago", "Ninjago City", "Le Royaume Maudit", "Shintaro"],
+        correct: 0
+    },
+	{
+        question: "Qui est ce personnage ?",
+		image: "images/ninjago/ronan.png",
+        answers: ["Clouse", "Chen", "Dareth", "Ronan"],
+        correct: 3
+    },
+	{
+        question: "Quel est le nom de l'operation des nindroid pour aller dans l'espace ?",
+		image: "images/ninjago/ronan.png",
+        answers: ["Arcturus", "Régulus", "Orion", "Pegasus"],
+        correct: 0
+    },
 	
 ];
