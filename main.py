@@ -13,7 +13,7 @@ pygame.init()
 window = pygame.display.set_mode((1000, 667))
 
 player = Player()
-list_module = [pygame.Rect(690, 360, 70, 60), pygame.Rect(720, 200, 75, 75), pygame.Rect(525, 450, 75, 75), pygame.Rect(280, 400, 75, 60)]
+list_module = [ pygame.Rect(750, 150, 115, 75), pygame.Rect(740, 430, 135, 110), pygame.Rect(525, 450, 75, 75), pygame.Rect(280, 400, 75, 60)]
 
 run = True
 draw_char = False
@@ -28,7 +28,7 @@ def run_quiz():
     chemin = os.getcwd()
     webbrowser.open(os.sep.join([chemin, "quiz-lego", "index.html"]))
 
-bgimage = pygame.image.load(os.sep.join(["assets", "maps", "bgimageR.png"]))
+bgimage = pygame.image.load(os.sep.join(["assets", "maps", "proto4,2.png"]))
 setimage = pygame.image.load(os.sep.join(["assets", "setting.png"]))
 x = 930
 y = 0
@@ -59,7 +59,7 @@ while run:
     window.blit(setimage, (x, y))
 
     for i in range(len(list_module)):
-        #pygame.draw.rect(window, (0, 255, 0), list_module[i], 1)
+        pygame.draw.rect(window, (0, 255, 0), list_module[i], 3)
 
         if player.rect.left <= list_module[i].right and player.rect.right >= list_module[i].left \
         and player.rect.bottom >= list_module[i].top and player.rect.top <= list_module[i].bottom :
@@ -108,3 +108,5 @@ while run:
     player.draw(window)
 
     pygame.display.flip()
+
+pygame.quit()
