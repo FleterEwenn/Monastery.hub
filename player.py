@@ -2,7 +2,7 @@
 #Auteurs : Ewenn Fleter, Raphael Kermes
 
 import pygame
-from assets import get_jay1, get_cole1, get_kai1, get_jay2, get_wu1, get_lloyd1, get_nya1, get_zane1
+from assets.assets import get_jay1, get_cole1, get_kai1, get_jay2, get_wu1, get_lloyd1, get_nya1, get_zane1
 
 class Player:
     def __init__(self):

@@ -13,7 +13,7 @@ pygame.init()
 window = pygame.display.set_mode((1000, 667))
 
 player = Player()
-list_module = [ pygame.Rect(750, 150, 115, 75), pygame.Rect(740, 430, 135, 110), pygame.Rect(525, 450, 75, 75), pygame.Rect(280, 400, 75, 60)]
+list_module = [pygame.Rect(750, 100, 115, 120), pygame.Rect(740, 430, 135, 110), pygame.Rect(130, 100, 115, 120), pygame.Rect(120, 435, 140, 110)]
 
 run = True
 draw_char = False
@@ -25,8 +25,10 @@ def run_minilangage():
     subprocess.Popen([sys.executable, "minilangage.py"])
 
 def run_quiz():
-    chemin = os.getcwd()
-    webbrowser.open(os.sep.join([chemin, "quiz-lego", "index.html"]))
+    webbrowser.open(os.sep.join(["quiz-lego", "index.html"]))
+
+def run_hexa():
+    subprocess.Popen([sys.executable, os.sep.join(["conversion_binaire_hexa","conversion_binaire_hexa.py"])])
 
 bgimage = pygame.image.load(os.sep.join(["assets", "maps", "proto4,2.png"]))
 setimage = pygame.image.load(os.sep.join(["assets", "setting.png"]))
@@ -59,7 +61,7 @@ while run:
     window.blit(setimage, (x, y))
 
     for i in range(len(list_module)):
-        pygame.draw.rect(window, (0, 255, 0), list_module[i], 3)
+        # pygame.draw.rect(window, (0, 255, 0), list_module[i], 3)
 
         if player.rect.left <= list_module[i].right and player.rect.right >= list_module[i].left \
         and player.rect.bottom >= list_module[i].top and player.rect.top <= list_module[i].bottom :
@@ -69,6 +71,8 @@ while run:
                 run_minilangage()
             if i == 2:
                 run_quiz()
+            if i == 3:
+                run_hexa()
             player.reset_pos()
     
     if draw_char:

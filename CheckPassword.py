@@ -10,6 +10,7 @@ window = Tk()
 window.title("Check Password")
 window.geometry("800x600")
 window.config(background="#1C55A3")
+window.resizable(False, False)
 
 def evaluate_password(password:str, frame:Frame):
     # peut être conseiller à voir ce site ?

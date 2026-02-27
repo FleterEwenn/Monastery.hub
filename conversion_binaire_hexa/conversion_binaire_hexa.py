@@ -1,9 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 16 16:46:35 2026
-
-@author: rapha
-"""
+#Projet : monastery.hub
+#Auteurs : Ewenn Fleter, Raphael Kermes
 
 import tkinter as tk
 import random
