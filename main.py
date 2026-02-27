@@ -75,6 +75,15 @@ while run:
                 run_hexa()
             player.reset_pos()
     
+    if player.rect.right >= 940:
+        player.rect.x = 940 - player.rect.width
+    if player.rect.left <= 60:
+        player.rect.x = 60
+    if player.rect.top <= 110:
+        player.rect.y = 110
+    if player.rect.bottom >= 565:
+        player.rect.y = 565 - player.rect.height
+
     if draw_char:
         window.blit(jay1_ico, (945, 20+64))
         window.blit(kai_ico, (945, 20+2*64))
@@ -92,7 +101,6 @@ while run:
                   and pygame.mouse.get_pressed()[0] and timer >= 200:
                     timer = 0
                     player.change_perso(i)
-
     
     if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000 \
       and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64:
