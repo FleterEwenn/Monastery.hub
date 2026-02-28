@@ -22,7 +22,7 @@ def run_checkpassword():
     subprocess.Popen([sys.executable, "CheckPassword.py"])
 
 def run_minilangage():
-    subprocess.Popen([sys.executable, "minilangage.py"])
+    subprocess.Popen([sys.executable, os.sep.join(["minilangage", "minilangage.py"])])
 
 def run_quiz():
     webbrowser.open(os.sep.join(["quiz-lego", "index.html"]))

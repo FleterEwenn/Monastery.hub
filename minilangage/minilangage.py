@@ -2,9 +2,14 @@
 #Auteurs : Ewenn Fleter, Raphael Kermes
 
 from tkinter import *
+import webbrowser
+import os
 
 var = {}
 list_if_codes = []
+
+def open_doc():
+    webbrowser.open(os.sep.join(["minilangage", "doc_minilangage.html"]))
 
 def trifusion(list_:list)->list:
     n = len(list_)
@@ -262,12 +267,14 @@ zone_text = Text(window, width=75, height=39, background='#404040', fg='#FAFAFA'
 
 execute_btn = Button(framesetting, command=split_code, text="executer", relief=FLAT)
 clean_btn = Button(framesetting, text="nettoyer la console", command=clear_console, relief=FLAT)
+doc_btn = Button(framesetting, text="documentation", command=open_doc, relief=FLAT)
 
 console = Text(window, width=65, height=39, background='#404040', fg='#FAFAFA', relief=SOLID)
 
 framesetting.pack(side=LEFT, fill=Y, pady=10, expand=YES)
 execute_btn.pack(pady=10, padx=5)
 clean_btn.pack(pady=10, padx=5)
+doc_btn.pack(pady=10, padx=5)
 
 zone_text.pack(side=LEFT, expand=True)
 
