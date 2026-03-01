@@ -12,5 +12,5 @@ pip install -r requirements.txt
 Maintenant, le demarrage du projet est possible.
 Pour cela, il faut executer le fichier main.py :
 ```
-python main.py
+python sources/main.py
 ```
