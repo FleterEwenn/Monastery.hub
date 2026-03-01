@@ -31,7 +31,7 @@ def run_hexa():
     subprocess.Popen([sys.executable, os.sep.join(["conversion_binaire_hexa","conversion_binaire_hexa.py"])])
 
 bgimage = pygame.image.load(os.sep.join(["assets", "maps", "proto4,2.png"]))
-setimage = pygame.image.load(os.sep.join(["assets", "setting.png"]))
+setimage = pygame.image.load(os.sep.join(["assets", "setting", "setting_petit.png"]))
 x = 930
 y = 0
 
@@ -104,7 +104,7 @@ while run:
     
     if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000 \
       and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64:
-        setimage = pygame.transform.scale(setimage, (70, 70))
+        setimage = pygame.image.load(os.sep.join(["assets", "setting", "setting_grand.png"]))
         x = 926
         y = -4
 
@@ -113,7 +113,7 @@ while run:
             draw_char = not draw_char
     
     else:
-        setimage = pygame.transform.scale(setimage, (64, 64))
+        setimage = pygame.image.load(os.sep.join(["assets", "setting", "setting_petit.png"]))
         x = 930
         y = 0
 
