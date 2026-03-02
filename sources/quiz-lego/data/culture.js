@@ -40,11 +40,6 @@ const cultureQuestions = [
         correct: 0
     },
 	{
-        question: "Qui était le premier président des États-Unis ?",
-        answers: ["Fer", "Fluor", "Francium", "Fermium"],
-        correct: 0
-    },
-	{
 		question: "Qui était le premier président des États-Unis ?",
 		answers: ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "John Adams"],
 		correct: 1
@@ -103,11 +98,6 @@ const cultureQuestions = [
 		question: "En quelle année la chute du mur de Berlin a-t-elle eu lieu ?",
 		answers: ["1989", "1987", "1991", "1993"],
 		correct: 0
-	},
-	{
-		question: "Quel est le plus long fleuve du monde selon certaines mesures récentes ?",
-		answers: ["Nil", "Mississippi", "Yangzi Jiang", "Amazone"],
-		correct: 3
 	}
 	
 ];

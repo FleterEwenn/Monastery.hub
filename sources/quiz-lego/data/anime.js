@@ -95,7 +95,7 @@ const animeQuestions = [
         correct: 2
     },
 	{
-        question: "Quel est l'objet, le 'Jinki' que Rudo utilise dans Gachikuta ?",
+        question: "Quel est l'objet, le 'Jinki' que Rudo utilise dans Gachiakuta ?",
 		image: "images/anime/Gachiakuta.png",
         answers: ["Un fusil", "Un skate", "Des gants", "Un parapluie"],
         correct: 2
