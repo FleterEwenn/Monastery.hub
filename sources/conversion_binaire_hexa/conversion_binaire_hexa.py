@@ -3,6 +3,9 @@
 
 import tkinter as tk
 import random
+import os
+
+chemin = os.getcwd()
 
 DUREE = 360           #config
 NB_QUESTIONS = 10
@@ -133,7 +136,7 @@ def afficher_rappel():
     )
     label_titre.pack(pady=10)
 
-    image = tk.PhotoImage(file="rappel.png")
+    image = tk.PhotoImage(file=os.sep.join([chemin, "sources", "conversion_binaire_hexa", "rappel.png"]))
 
     label_image = tk.Label(
         fenetre_rappel,

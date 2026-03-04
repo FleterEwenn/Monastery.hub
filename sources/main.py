@@ -21,30 +21,30 @@ run = True
 draw_char = False
 
 def run_checkpassword():
-    subprocess.Popen([sys.executable, os.sep.join([chemin_dossier, "CheckPassword.py"])])
+    subprocess.Popen([sys.executable, os.sep.join([chemin_dossier, "sources", "CheckPassword.py"])])
 
 def run_minilangage():
-    subprocess.Popen([sys.executable, os.sep.join([chemin_dossier, "minilangage", "minilangage.py"])])
+    subprocess.Popen([sys.executable, os.sep.join([chemin_dossier, "sources", "minilangage", "minilangage.py"])])
 
 def run_quiz():
-    webbrowser.open(os.sep.join([chemin_dossier, "quiz-lego", "index.html"]))
+    webbrowser.open(os.sep.join([chemin_dossier, "sources", "quiz-lego", "index.html"]))
 
 def run_hexa():
-    subprocess.Popen([sys.executable, os.sep.join([chemin_dossier, "conversion_binaire_hexa","conversion_binaire_hexa.py"])])
+    subprocess.Popen([sys.executable, os.sep.join([chemin_dossier, "sources", "conversion_binaire_hexa","conversion_binaire_hexa.py"])])
 
-bgimage = pygame.image.load(os.sep.join([chemin_dossier, "assets", "maps", "proto4,2.png"]))
-setimage = pygame.image.load(os.sep.join([chemin_dossier, "assets", "setting", "setting_petit.png"]))
+bgimage = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "maps", "proto4,2.png"]))
+setimage = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "setting", "setting_petit.png"]))
 x = 930
 y = 0
 
-jay2_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "JAY2", "JAY2_icon.png"]))
-jay1_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "JAY1", "JAY1_icon.png"]))
-cole_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "COLE1", "COLE1_icon.png"]))
-kai_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "KAI1", "KAI1_icon.png"]))
-lloyd_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "LLOYD1", "LLOYD1_icon.png"]))
-wu_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "WU1", "WU1_icon.png"]))
-zane_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "ZANE1", "ZANE1_icon.png"]))
-nya_ico = pygame.image.load(os.sep.join([chemin_dossier, "assets", "ninjas", "NYA1", "NYA1_icon.png"]))
+jay2_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "JAY2", "JAY2_icon.png"]))
+jay1_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "JAY1", "JAY1_icon.png"]))
+cole_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "COLE1", "COLE1_icon.png"]))
+kai_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "KAI1", "KAI1_icon.png"]))
+lloyd_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "LLOYD1", "LLOYD1_icon.png"]))
+wu_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "WU1", "WU1_icon.png"]))
+zane_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "ZANE1", "ZANE1_icon.png"]))
+nya_ico = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "ninjas", "NYA1", "NYA1_icon.png"]))
 
 clock = pygame.time.Clock()
 timer = 0
@@ -106,7 +106,7 @@ while run:
     
     if pygame.mouse.get_pos()[0] >= 936 and pygame.mouse.get_pos()[0] <= 1000 \
       and pygame.mouse.get_pos()[1] >= 0 and pygame.mouse.get_pos()[1] <= 64:
-        setimage = pygame.image.load(os.sep.join([chemin_dossier, "assets", "setting", "setting_grand.png"]))
+        setimage = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "setting", "setting_grand.png"]))
         x = 926
         y = -4
 
@@ -115,7 +115,7 @@ while run:
             draw_char = not draw_char
     
     else:
-        setimage = pygame.image.load(os.sep.join([chemin_dossier, "assets", "setting", "setting_petit.png"]))
+        setimage = pygame.image.load(os.sep.join([chemin_dossier, "sources", "assets", "setting", "setting_petit.png"]))
         x = 930
         y = 0
 
