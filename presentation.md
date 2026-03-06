@@ -1,3 +1,5 @@
+résumé du projet 500 caracteres max
+
 # Présentation du modèle
 
 La présentation du projet est une description synthétique rédigée par Raphael KERMES et Ewenn FLETER, créateurs de ce projet. Vous trouverez ci-dessous les informations essentielles du projet Monastery.hub:
@@ -59,3 +61,5 @@ Précisez les informations suivantes :
 - analyse critique, 
 - compétences personnelles développées.
 - démarche d'inclusion.
+
+## Utilisation de l'IA
