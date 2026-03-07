@@ -3,15 +3,15 @@
 
 from tkinter import *
 import webbrowser
-import os
+from pathlib import Path
 
 var = {}
 list_if_codes = []
 
-chemin = os.getcwd()
+chemin = Path(__file__).resolve().parent
 
 def open_doc():
-    webbrowser.open(os.sep.join([chemin, "sources", "minilangage", "doc_minilangage.html"]))
+    webbrowser.open(chemin / "doc_minilangage.html")
 
 def trifusion(list_:list)->list:
     n = len(list_)
