@@ -4,9 +4,12 @@
 from tkinter import *
 from string import *
 from random import *
+from pathlib import Path
+
+chemin = Path(__file__).resolve().parent
 
 window = Tk()
-
+window.iconbitmap(chemin / "assets" / "logo" / "logo_monastery-legotm.ico")
 window.title("Check Password")
 window.geometry("800x600")
 window.config(background="#1C55A3")

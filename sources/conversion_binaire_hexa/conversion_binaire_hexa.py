@@ -125,6 +125,7 @@ def choisir_hexa():
 
 def afficher_rappel():
     fenetre_rappel = tk.Toplevel()
+    fenetre_rappel.iconbitmap(chemin.parent / "assets" / "logo" / "logo_monastery-legotm.ico")
     fenetre_rappel.title("Rappel Binaire / Hexa")
     fenetre_rappel.configure(bg="#111111")
     fenetre_rappel.geometry("700x500")  ######## ajustement
@@ -150,6 +151,7 @@ def afficher_rappel():
 
 fenetre = tk.Tk()
 fenetre.title("NSI LEGO Quizz")
+fenetre.iconbitmap(chemin.parent / "assets" / "logo" / "logo_monastery-legotm.ico")
 fenetre.geometry("500x600")
 fenetre.configure(bg="#111111")
 fenetre.resizable(False, False)

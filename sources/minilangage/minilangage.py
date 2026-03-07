@@ -260,6 +260,7 @@ def executer_code(code:list[str]):
 window = Tk()
 
 window.title("mini-langage")
+window.iconbitmap(chemin.parent / "assets" / "logo" / "logo_monastery-legotm.ico")
 window.geometry("800x600")
 window.config(background='#27272A')
 
