@@ -14,6 +14,42 @@ chemin = Path(__file__).resolve().parent
 
 window = pygame.display.set_mode((1000, 667))
 
+shuriken_original = pygame.image.load(chemin / "assets" / "logo" / "shuriken_dim.png")
+logo = pygame.image.load(chemin / "assets" / "logo" / "logo_black_dim.png")
+x_shuriken = -100
+y_shuriken = 300
+angle = 0
+running = True
+
+shuriken = pygame.transform.rotate(shuriken_original, angle)
+rect = shuriken.get_rect(center=(x_shuriken, y_shuriken))
+
+clock = pygame.time.Clock()
+timer = 0
+
+while running:
+    dt = clock.tick(120)
+    timer += dt
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    window.fill((0, 0, 0))
+
+    window.blit(shuriken, rect)
+
+    if x_shuriken <= 500:
+        shuriken = pygame.transform.rotate(shuriken_original, angle)
+        x_shuriken += 3
+        angle += 6
+        rect = shuriken.get_rect(center=(x_shuriken, y_shuriken))
+    else:
+        shuriken = shuriken_original
+        window.blit(logo, rect)
+
+    pygame.display.flip()
+
 player = Player()
 list_module = [pygame.Rect(750, 100, 115, 120), pygame.Rect(740, 430, 135, 110), pygame.Rect(130, 100, 115, 120), pygame.Rect(120, 435, 140, 110)]
 
