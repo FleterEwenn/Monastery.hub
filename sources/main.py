@@ -5,6 +5,7 @@ import subprocess
 import sys
 import pygame
 from player import Player
+from assets.assets import get_ewenn, get_raph
 import webbrowser
 from pathlib import Path
 
@@ -15,11 +16,16 @@ chemin = Path(__file__).resolve().parent
 window = pygame.display.set_mode((1000, 667))
 
 shuriken_original = pygame.image.load(chemin / "assets" / "logo" / "shuriken_dim.png")
-logo = pygame.image.load(chemin / "assets" / "logo" / "logo_black_dim.png")
 x_shuriken = -100
 y_shuriken = 300
 angle = 0
-running = True
+
+logo = pygame.image.load(chemin / "assets" / "logo" / "logo_black_dim.png")
+logo_fond = pygame.image.load(chemin / "assets" / "logo" / "logo_monastery_dim.png")
+
+run_anim = True
+run_game = False
+run_menu = False
 
 shuriken = pygame.transform.rotate(shuriken_original, angle)
 rect = shuriken.get_rect(center=(x_shuriken, y_shuriken))
@@ -27,13 +33,15 @@ rect = shuriken.get_rect(center=(x_shuriken, y_shuriken))
 clock = pygame.time.Clock()
 timer = 0
 
-while running:
+opacity_logo = 0
+
+while run_anim:
     dt = clock.tick(120)
     timer += dt
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            run_anim = False
 
     window.fill((0, 0, 0))
 
@@ -44,16 +52,73 @@ while running:
         x_shuriken += 3
         angle += 6
         rect = shuriken.get_rect(center=(x_shuriken, y_shuriken))
+        timer = 0
     else:
         shuriken = shuriken_original
-        window.blit(logo, rect)
+    
+        if timer >= 300:
+            opacity_logo += 1
+            logo.set_alpha(opacity_logo)
 
+            window.blit(logo, rect)
+        
+        if timer >= 3000:
+            window.blit(logo_fond, rect)
+        
+        if timer >= 5000:
+            run_menu = True
+            run_anim = False
+
+    pygame.display.flip()
+
+
+fond = pygame.image.load(chemin / "assets" / "maps" / "bg_acc_pixelisé_dim.png")
+
+btn_start = pygame.image.load(chemin / "assets" / "accueil" / "start_button-1.png")
+
+clock = pygame.time.Clock()
+timer = 0
+
+ewenn_frames = get_ewenn()["idle"]
+raph_frames = get_raph()["idle"]
+index_frame = 0
+
+btn_rect = pygame.Rect(280, 226, 410, 107)
+
+while run_menu:
+    dt = clock.tick(30)
+    timer += dt
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run_menu = False
+    
+    if timer >= 300:
+        index_frame = (index_frame+1)%2
+        timer = 0
+
+    window.fill((0, 0, 0))
+
+    window.blit(fond, (0, 0))
+
+    window.blit(btn_start, (250, 100))
+
+    window.blit(ewenn_frames[index_frame], (300, 162))
+    window.blit(raph_frames[index_frame], (600, 162))
+
+    if pygame.mouse.get_pos()[0] >= btn_rect.left and pygame.mouse.get_pos()[0] <= btn_rect.right \
+    and pygame.mouse.get_pos()[1] >= btn_rect.top and pygame.mouse.get_pos()[1] <= btn_rect.bottom \
+    and pygame.mouse.get_pressed()[0]:
+        run_game = True
+        run_menu = False
+
+    #pygame.draw.rect(window, (255, 0, 0), btn_rect, 1)
+    
     pygame.display.flip()
 
 player = Player()
 list_module = [pygame.Rect(750, 100, 115, 120), pygame.Rect(740, 430, 135, 110), pygame.Rect(130, 100, 115, 120), pygame.Rect(120, 435, 140, 110)]
 
-run = True
 draw_char = False
 
 def run_checkpassword():
@@ -85,18 +150,21 @@ nya_ico = pygame.image.load(chemin / "assets" / "ninjas" / "NYA1" / "NYA1_icon.p
 clock = pygame.time.Clock()
 timer = 0
 
-while run:
+while run_game:
     dt = clock.tick(60)
     timer += dt
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            run_game = False
     
     player.update(dt)
     
     window.blit(bgimage, (0, 0))
     window.blit(setimage, (x, y))
+
+    if player.rect.x + player.rect.width >= 450 and player.rect.x <= 550 and player.rect.y <= 110:
+        run_game = False
 
     for i in range(len(list_module)):
         # pygame.draw.rect(window, (0, 255, 0), list_module[i], 3)

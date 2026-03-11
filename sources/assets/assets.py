@@ -318,3 +318,24 @@ def get_zane1()->dict:
     zane1_dict["left"] = zane1_left_list
     zane1_dict["idle"] = zane1_idle_list
     return zane1_dict
+
+ewenn = pygame.image.load(chemin / "accueil" / "Ewenn&Raph" / "ewenn.png")
+ewenn_list = [
+    ewenn.subsurface(pygame.Rect(i*image_size, 0, image_size, image_size))
+    for i in range (2)
+]
+def get_ewenn()->dict:
+    ewenn_dict = {}
+    ewenn_dict["idle"] = ewenn_list
+    return ewenn_dict
+    
+raph = pygame.image.load(chemin / "accueil" / "Ewenn&Raph" / "RAPH.png")
+raph_list = [
+    raph.subsurface(pygame.Rect(i*image_size, 0, image_size, image_size))
+    for i in range (2)
+]
+
+def get_raph()->dict:
+    raph_dict = {}
+    raph_dict["idle"] = raph_list
+    return raph_dict
