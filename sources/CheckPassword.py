@@ -64,10 +64,10 @@ def evaluate_password(password:str, frame:Frame):
     
     if point <= 0:
         response = "Votre mot de passe est completement nul"
-        label_color = 'red'
+        label_color = '#31D5DE'
     elif point <= 10:
         response = "Votre mot de passe est très faible, vous devez impérativement le changer et l'améliorer"
-        label_color = 'red'
+        label_color = '#31D5DE'
     elif point <= 15:
         response = "Votre mot de passe est faible, améliorez le vite"
         label_color = 'orange'
@@ -76,7 +76,7 @@ def evaluate_password(password:str, frame:Frame):
         label_color = 'lightgreen'
     elif point >= 20:
         response = "Bravo, votre mot de passe est fort"
-        label_color = 'green'
+        label_color = '#7FE334'
 
     label_check = Label(frame, text=response, fg=label_color, background="#1C55A3", font=("Comic sans MS", 13))
     
