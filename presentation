@@ -1,69 +1,63 @@
-
-
-#Résumé du projet 500 caractères max
+# Résumé du projet 500 caractères max
 
 Notre projet consiste à développer un jeu vidéo éducatif en Python dans lequel le joueur incarne un ninja évoluant dans un univers LEGO futuriste et robotique au style pixel art. Après avoir lancé le jeu et cliqué sur « Jouer », il peut choisir parmi quatre activités liées à l’informatique : questions variées, programmation, systèmes de numération et sécurité des mots de passe. L’objectif est d’apprendre des notions de NSI de manière ludique et interactive grâce à des explications accessibles à tous.
 
-#🎮 Présentation du projet 
+# 🎮 Présentation du projet 
 
 La présentation du projet est une description synthétique rédigée par Raphael KERMES et Ewenn FLETER, créateurs de ce projet. Vous trouverez ci-dessous les informations essentielles du projet Monastery.hub:
 
-##💡 Présentation globale de notre projet
+## 💡 Présentation globale de notre projet
 
-Nous sommes tous deux de bons amis c'est pourquoi nous avons chacun de notre coté réfléchi à ce que l'on peut faire pour les Trophées NSI 2026 dans l'objectif de faire quelque chose qui nous ressemble, avec des thèmes que l'on connait bien. Nous avons donc réaliser un brainstorm de nos idées telles que :
-- une map avec des personnages que l'utilisateur pourra controler
-- un verificateur de robustesse de mot de passe
-- un convertisseur de decimal vers binaire ou hexadecimal
-- un mini langage de programmation qu'il faudra étudier, c'est à dire apprendre les caracteristiques avant de pouvoir coder 
-- un quizz pour le divertissement et dans un but pedagogique également 
+Nous sommes tous deux de bons amis, c'est pourquoi nous avons chacun de notre côté réfléchi à ce que l'on peut faire pour les Trophées NSI 2026 dans l'objectif de faire quelque chose qui nous ressemble, avec des thèmes que l'on connaît bien. Nous avons donc réalisé un brainstorm de nos idées telles que :
+- une map avec des personnages que l'utilisateur pourra contrôler
+- un vérificateur de robustesse de mot de passe
+- un convertisseur de décimal vers binaire ou hexadécimal
+- un mini langage de programmation qu'il faudra étudier, c'est-à-dire apprendre les caractéristiques avant de pouvoir coder 
+- un quiz pour le divertissement et dans un but pédagogique également 
 
-En réalité nous nous sommes rendu compte que toutes ses idées constituent des mini-projets que l'on peut rassembler en un seul et unique projet depuis lequel on choisirait l'activité que l'on souhaite. Donc assez naturellement nous avons penser à donner à l'utilisateur une experience similaire à un jeu vidéo avec un accueil puis l'ouverture dans une map avec un personnage (interchangeable grace à un casier) qui peut interagir avec des élements afin de lancer les differentes activitées (mini-projets).
-Comme il nous faut une DA (Direction Artistique) à appliquer sur tout le projet et que nous avions prévu de faire nous-meme les personnages ainsi que la map en pixels, nous avons choisi de nous orienter vers un thème *LEGO*, plus particulierement *NINJAGO* car c'est une série qui nous tient à coeur que nous avons orienter dans une version plus rétro et informatique (univers nindroid, néons, pixel art).
-Le nom du projet *Monastery.hub* est un alliage entre le monastaire, un lieu d'apprentissage qui fait écho avec NINJAGO est le *.hub* comme une extension de fichier car un hub est une plateforme qui relie plusieurs réseaux et concentre des données.
+En réalité nous nous sommes rendu compte que toutes ces idées constituent des mini-projets que l'on peut rassembler en un seul et unique projet depuis lequel on choisirait l'activité que l'on souhaite. Donc assez naturellement nous avons pensé à donner à l'utilisateur une expérience similaire à un jeu vidéo avec un accueil puis l'ouverture dans une map avec un personnage (interchangeable grâce à un casier) qui peut interagir avec des éléments afin de lancer les différentes activités (mini-projets).
+Comme il nous faut une DA (Direction Artistique) à appliquer sur tout le projet et que nous avions prévu de faire nous-mêmes les personnages ainsi que la map en pixels, nous avons choisi de nous orienter vers un thème *LEGO*, plus particulièrement *NINJAGO* car c'est une série qui nous tient à cœur que nous avons orientée dans une version plus rétro et informatique (univers nindroid, néons, pixel art).
+Le nom du projet *Monastery.hub* est un alliage entre le monastère, un lieu d'apprentissage qui fait écho avec NINJAGO et le *.hub* comme une extension de fichier car un hub est une plateforme qui relie plusieurs réseaux et concentre des données.
 
-La problematique initiale auquelle on répond est : Comment développer un jeu vidéo éducatif en Python combinant apprentissage des bases de l’informatique et immersion interactive ?
-Les objectifs de nos solution proposés sont de motiver l'utilisateur à vouloir s'améliorer (rendre la programmation ludique) dans au moins une des activités et donner une vraie sensation d'immersion avec une identité visuelle cohérente. Tout cela en appliquant concrètement les notions vues en NSI en classe de première et terminale.
+La problématique initiale à laquelle on répond est : Comment développer un jeu vidéo éducatif en Python combinant apprentissage des bases de l’informatique et immersion interactive ?
+Les objectifs de nos solutions proposées sont de motiver l'utilisateur à vouloir s'améliorer (rendre la programmation ludique) dans au moins une des activités et donner une vraie sensation d'immersion avec une identité visuelle cohérente. Tout cela en appliquant concrètement les notions vues en NSI en classe de première et terminale.
 
-##👥 Présentation de l'équipe 
+## 👥 Présentation de l'équipe 
 
-On forme un duo qui fonctionne très bien sur ce projet car on connait nos faiblesses et qualités qui permettent de se mettre facilement d'accord sur une répartition équilibré. De plus nous partageons des points de vue differents mais qui sont complementaires pour faire avancer *Monastery.hub*.
-Tout d'abord Ewenn est le codeur principal qui a posé une base sur laquelle on a pu s'appuyer avec une map temporaire. Il s'est occupé du verificateur de mot de passse, du minilangage et de faire le lien entre toutes les activités pour que lorsqu'on se rapproche avec notre personnage de l'élément de la map qui représente l'activité choisie par l'utilisateur alors une fenetre s'ouvre.  
-Raphael s'est occupé de l'entière réalisation des personnages, le logo et l'accueil ainsi que le quizz (HTML, CSS, Javascript) et le convertisseur (Python -> Tkinter). C'est Ewenn qui a ensuite utiliser les frames des personnages (lego ninjas) pour créer les déplacements.
-On estime avoir passé beaucoup de temps sur le projet de l'ordre des ... heures. A l'aide de github et quelques commmandes (git pull, git add . , git commit -m "", git push) nous pouvions accéder simplement au dossier et le modifier pour tous les deux.
+On forme un duo qui fonctionne très bien sur ce projet car on connaît nos faiblesses et qualités qui permettent de se mettre facilement d'accord sur une répartition équilibrée. De plus nous partageons des points de vue différents mais qui sont complémentaires pour faire avancer *Monastery.hub*.
+Tout d'abord Ewenn est le codeur principal qui a posé une base sur laquelle on a pu s'appuyer avec une map temporaire. Il s'est occupé du vérificateur de mot de passe, du mini langage et de faire le lien entre toutes les activités pour que lorsqu'on se rapproche avec notre personnage de l'élément de la map qui représente l'activité choisie par l'utilisateur alors une fenêtre s'ouvre.  
+Raphael s'est occupé de l'entière réalisation des personnages, le logo et l'accueil ainsi que le quiz (HTML, CSS, JavaScript) et le convertisseur (Python -> Tkinter). C'est Ewenn qui a ensuite utilisé les frames des personnages (lego ninjas) pour créer les déplacements.
+On estime avoir passé beaucoup de temps sur le projet de l'ordre des ... heures. À l'aide de GitHub et quelques commandes (git pull, git add . , git commit -m "", git push) nous pouvions accéder simplement au dossier et le modifier pour tous les deux.
 
-##🛠️ Étapes du projet
+## 🛠️ Étapes du projet
 
-Boucle
-La réalisation des 8 personnages sur le logiciel piskel (14 frames)
-Réalisations mini-projets 
-Assemblage
-Ewenn et Raphael en LEGO 
-Accueil 
+Boucle while principale du jeu  
+La réalisation des 8 personnages sur le logiciel Piskel (14 frames)  
+Réalisations des mini-projets  
+Assemblage des mini-projets et leur accès sur le jeu  
+Ewenn et Raphael en LEGO  
+Design du logo, différentes versions  
+Accueil avec lancement et l'animation
 
-##💻 Validation de l’opérationnalité et du fonctionnement ⚙️ 
-
-*Vous détaillez l'état d'avancement de votre projet et les actions menées pour garantir le bon fonctionnement de votre solution => compétences évaluées : capacité à innover, à identifier les difficultés et à proposer des améliorations, capacité à justifier des choix technologiques et à expliquer les concepts.*
+## 💻 Validation de l’opérationnalité et du fonctionnement ⚙️ 
 
 Au moment du dépôt, le projet est fini, du moins nous avons fait ce qui était prévu car on peut le faire évoluer indéfiniment. 
-Afin de vérifier l'absence de bugs ou disfonctionnements nous avons fait tester le projet à nos proches en plus de nos verifications dès qu'un élément était modifié. 
-Nous avons rencontré plusieurs difficultés auxquelles nous avont apporté des solutions :
+Afin de vérifier l'absence de bugs ou dysfonctionnements nous avons fait tester le projet à nos proches en plus de nos vérifications dès qu'un élément était modifié. 
+Nous avons rencontré plusieurs difficultés auxquelles nous avons apporté des solutions :
+- bug au moment de la fermeture du jeu -> pygame.quit() pour fermer le module
+- logo paramètre disparaissait à cause d'une suite de modifications de l'image -> faire deux images de tailles différentes
+- problème technique : problème avec git -> commande git clone puis retéléchargement
+- problème des chemins d'accès aux assets -> utiliser un chemin absolu à l'aide du module pathlib
+- couleur CSS haut de page modifiée -> couleur prioritaire avec !important
 
+## 🌐 Ouverture 
 
+Pour améliorer le projet on peut approfondir les activités par exemple dans le quiz il est possible de rajouter autant de thèmes que l'on souhaite (exemple : Art, Géographie...) ou dans le convertisseur nous avons utilisé les systèmes de numération les plus répandus mais il existe également l'octal.
+Nous avons tous deux développé des compétences personnelles à commencer par la gestion du projet en lui-même, c'est-à-dire des facteurs tels que le temps estimé, l'organisation et la répartition qu'on estime avoir réussi.
+Notre projet comprend une démarche d'inclusion en répondant à notre problématique, c'est-à-dire un jeu vidéo d'apprentissage et ludique pour tous.
+Nous avons également approfondi nos connaissances des langages notamment le JavaScript, et les modules pygame et Tkinter.
 
-##🌐 Ouverture 
+## 🤖 Utilisation de l'IA 
 
-*Vous réalisez un bilan personnel sur ce projet et détaillez l'expérience vécue par chaque membre de l'équipe => compétences évaluées : analyse critique, prise de recul, implication dans le projet.*
-
-Précisez les informations suivantes :
-- idées d'amélioration du projet,
-- analyse critique, 
-- compétences personnelles développées.
-- démarche d'inclusion.
-
-Pour améliorer le projet on peut approfondir les activités par exemple dans le quizz il est possible de rajouter autant de thèmes que l'on souhaite (exemple:Art, Géographie...) ou dans le convertisseur nous avons utilisé les systèmes de numération les plus répandu mais il existe également l'octal.
-Nous avons tout deux développer des compétences personnelles à commencer par la gestion du projet en lui-meme, c'est-à-dire des facteurs tels que le temps estimé, l'organisation et la répartition qu'on estime avoir réussi.
-Notre projet comprend une démarche d'inclusion 
-
-##🤖 Utilisation de l'IA 
-
-Nous avons fait usage de l'IA pour générer la plupart des images du quizz adapté en lego et la map.
+Nous avons fait usage de l'IA pour générer la plupart des images du quiz adaptées en LEGO et la map.
+Nous avons fait appel à l'IA pour apporter des solutions plus rapidement avec explications pour des solutions spontanées à long terme. Par exemple, lors du codage du quiz en HTML et CSS c'est une IA qui a conseillé l'arborescence des fichiers .js (cinema.js etc) et l'optimisation de la fonction loadQuestion() notamment pour l'affichage des images. Elle nous a également permis de transformer les mini-projets en processus exécutables depuis main.py.
